@@ -1,0 +1,135 @@
+---
+title: "How I Built Secure REST APIs with OAuth 2.0 and JWT Authentication"
+summary: "A simple breakdown of how I implemented user authentication and authorization in my Java-based REST APIs using OAuth 2.0 and JWTs."
+publishedAt: "2025-04-07"
+tag: "OAuth2.0"
+---
+
+## Why I Built This
+
+When I first started building RESTful APIs, I focused mostly on getting the endpoints to work. But soon I realized that without **security**, it’s not production-ready. I needed to figure out:
+
+- How to protect routes
+- How to authenticate users
+- How to manage user sessions in a stateless way
+
+So I decided to dive into **OAuth 2.0**, **JWTs (JSON Web Tokens)**, and **Spring Security** to build a secure API backend from scratch.
+
+---
+
+## Step 1 – Designing the REST API
+
+I kept it simple:
+
+- `POST /register` – Sign up a new user
+- `POST /login` – Log in and get a JWT
+- `GET /profile` – Protected route for authenticated users only
+
+I used **Java + Spring Boot**, and exposed these as REST endpoints using Spring MVC.
+
+---
+
+## Step 2 – Registering and Logging In Users
+
+For registration, I just saved user data in a MySQL database. But for login, I needed to **generate a secure token**.
+
+That’s where **JWTs** came in.
+
+Once the user logs in with email & password, I generate a JWT that looks like this:
+
+```json
+{
+  "sub": "ankush.kumar@example.com",
+  "iat": 1680000000,
+  "exp": 1680003600,
+  "roles": ["USER"]
+}
+```
+
+It’s signed using a secret key and sent back to the client. The client includes it in every future request using the `Authorization: Bearer <token>` header.
+
+---
+
+## Step 3 – Securing Endpoints with OAuth 2.0 + JWT
+
+I used Spring Security’s support for **JWT-based filters** to verify every request. When a token is present:
+
+- I extract the username and roles
+- I skip the login process
+- I set the `SecurityContextHolder` with the authenticated user
+
+Here’s what it looks like in code:
+
+```java
+@Override
+protected void doFilterInternal(HttpServletRequest request,
+                                HttpServletResponse response,
+                                FilterChain filterChain) throws ServletException, IOException {
+
+    String authHeader = request.getHeader("Authorization");
+
+    if (authHeader != null && authHeader.startsWith("Bearer ")) {
+        String token = authHeader.substring(7);
+        String email = jwtService.extractUsername(token);
+
+        if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            UserDetails userDetails = userService.loadUserByUsername(email);
+
+            if (jwtService.isTokenValid(token, userDetails)) {
+                UsernamePasswordAuthenticationToken authToken =
+                    new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+
+                SecurityContextHolder.getContext().setAuthentication(authToken);
+            }
+        }
+    }
+
+    filterChain.doFilter(request, response);
+}
+```
+
+---
+
+## Step 4 – Role-Based Authorization
+
+Now that users are authenticated, I needed to **restrict certain routes** based on their roles.
+
+For example:
+
+```java
+@PreAuthorize("hasRole('ADMIN')")
+@GetMapping("/admin/dashboard")
+public String dashboard() {
+    return "Welcome to the admin dashboard!";
+}
+```
+
+If a regular user tries to access it, Spring Security blocks them immediately. Clean and simple.
+
+---
+
+## What I Learned
+
+- **JWTs are amazing** for stateless APIs. No session storage needed.
+- **OAuth 2.0 concepts** (like access tokens, scopes, roles) can be overkill at first, but are powerful when scaling.
+- **Spring Security** has a learning curve, but once configured, it does most of the heavy lifting for you.
+
+---
+
+## Final Thoughts
+
+Authentication isn’t just about "logging in"—it’s about building trust into your system. With the right setup, your API can be secure, scalable, and easy to integrate with frontend clients or third-party apps.
+
+---
+
+## What’s Next?
+
+- Add **refresh tokens** so sessions can last longer
+- Add **social logins** using OAuth providers (Google, GitHub, etc.)
+- Integrate **API rate limiting** and **logging** for better observability
+
+If you’re building REST APIs and haven’t implemented JWTs yet, I highly recommend giving it a shot. It’s one of those things that once you get working, feels incredibly satisfying.
+
+---
+
+> 🚨 Note: For local testing, I used Postman to send tokens in the header. It made debugging super smooth.

@@ -1,18 +1,19 @@
 import { Logo } from "@once-ui-system/core";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Kush",
+  lastName: "Kumar",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
+  role: "Software Engineer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "7kushkumar@gmail.com",
+  location: "America/Toronto", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English", "Hindi"], // optional: Leave the array empty if you don't want to display languages
 };
 
+/*
 const newsletter = {
   display: true,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
@@ -23,6 +24,7 @@ const newsletter = {
     </>
   ),
 };
+*/
 
 const social = [
   // Links are automatically displayed.
@@ -30,18 +32,22 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/ankush7kumar",
   },
+  /*
   {
     name: "LinkedIn",
     icon: "linkedin",
     link: "https://www.linkedin.com/company/once-ui/",
   },
+ 
   {
     name: "Threads",
     icon: "threads",
     link: "https://www.threads.com/@once_ui",
   },
+   */
+ 
   {
     name: "Email",
     icon: "email",
@@ -55,16 +61,15 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>To a thought in my head and to it happening in real on screen</>,
   featured: {
     display: true,
-    title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
-    href: "/work/building-once-ui-a-customizable-design-system",
+    title: <>Recent project: <strong className="ml-4">Product Specs Extractor</strong></>,
+    href: "/work/product-specs-extractor",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Logo icon="/trademarks/wordmark-dark.svg" style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Kush, a software engineer, I work mostly on the backend at work. After hours, I build my own projects.
     </>
   ),
 };
@@ -90,9 +95,8 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        I'm a Software Engineer with experience at BMO, Autodesk, and startups, skilled in building scalable APIs, secure authentication, and full-stack apps using Java, Spring Boot, React, and AWS. I’ve improved performance, reliability, and developer efficiency across domains.
+
       </>
     ),
   },
@@ -101,45 +105,98 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "BMO Financial Group",
+        timeframe: "November 2023 - Present",
+        role: "Software Engineer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Developed and maintained 30+ RESTful APIs using Java, Spring Boot, Spring MVC, Spring Security, and MySQL, optimizing internal financial operations.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Implemented secure OAuth 2.0 & JWT-based authentication to enforce robust user access control across services.
+          </>,
+          <>
+            Deployed scalable services on AWS using EC2, S3, and RDS, improving system reliability & deployment efficiency.
+          </>,
+          <>
+            Refactored APIs and optimized SQL queries, improving response times by 15% and reducing processing load.
+          </>,
+          <>
+            Built centralized error handling and data validation layers, reducing client-side data issues by 25%.
           </>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
+          
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Autodesk",
+        timeframe: "September 2022 - October 2023",
+        role: "Software Engineer",
         achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
-        ],
+  <>
+    Developed an n8n-powered AI workflow to post summaries and risk scores for merge requests, reducing code
+    review prep time by 30% per sprint and boosting overall developer efficiency.
+  </>,
+  <>
+    Built Account Portal features using React and Playwright with 100% test coverage and optimized performance.
+  </>,
+  <>
+    Improved homepage responsiveness across 25+ repos and increased user engagement on homepage by 30%.
+  </>,
+  <>
+    Led Subscription Renewal project, increasing early renewals through experiments and dashboard analytics.
+  </>,
+],
         images: [],
       },
+      {
+  company: "PointClickCare",
+  timeframe: "May 2021 - August 2021",
+  role: "Software Engineer - Intern",
+  achievements: [
+    <>
+      Built an application to simplify doctors’ documentation and integrated it with existing company healthcare products.
+    </>,
+    <>
+      Designed, built, and tested end-to-end MVP features using React, Redux, Spring Boot, and testing suites.
+    </>,
+    <>
+      Worked on schema design using SQL in accordance with US and Canadian health data protection laws, and created rollback scripts.
+    </>,
+    <>
+      Refactored monolithic code into modular components using React hooks and Redux, enhancing code scalability.
+    </>,
+  ],
+  images: [
+    // optional: leave the array empty if you don't want to display images
+  ],
+},
+{
+  company: "Arctic Wolf Networks",
+  timeframe: "May 2020 - August 2020",
+  role: "Software Developer - Intern",
+  achievements: [
+    <>
+      Led development of a schema parser, code generator, and ML-based predictor to standardize third-party data schemas using Python and Java.
+    </>,
+    <>
+      Built algorithms to automate integration, optimized workflows by 40% and reduced manual overhead.
+    </>,
+    <>
+      Engineered a real-time log ingestion and processing tool for Microsoft Office accounts.
+    </>,
+    <>
+      Enhanced security coverage across systems by enabling faster and more accurate log analysis.
+    </>,
+  ],
+  images: [
+    // optional: leave the array empty if you don't want to display images
+  ],
+},
+
+
     ],
   },
   studies: {
@@ -147,13 +204,10 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "University of Waterloo",
+        description: <>Honours Bachelor of Computer Science</>,
       },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
+    
     ],
   },
   technical: {
@@ -161,35 +215,36 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
+        title: "Languages",
+        description: <>Python, C++, Java, XML, Kotlin, C, JavaScript, Typescript, SQL, Bash, Scheme, CSS</>,
         // optional: leave the array empty if you don't want to display images
         images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+       
         ],
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+        title: "Databases and Tools",
+        description: <>MySQL, Oracle DB, Firebase Realtime, MongoDB, Redis, SQLLite, PostgreSQL, Git, Docker,
+Maven, Tomcat, Postman, Jupyter Notebook, JSON, CI/CD using GitHub Actions, Microsoft Azure Cloud, AWS</>,
         // optional: leave the array empty if you don't want to display images
         images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+          
+        ],
+      },
+      {
+        title: "Framework and Libraries",
+        description: <>React, Redux, Node.js, Spring Boot, Android, Prisma, PyTorch, Django, ReactJS</>,
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          
+        ],
+      },
+      {
+        title: "Architecture Styles",
+        description: <>Client-Server, MVC, MVVM, Microservices, HTTP</>,
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          
         ],
       },
     ],
@@ -199,7 +254,7 @@ const about = {
 const blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
+  title: "Writing about code and tech...",
   description: `Read what ${person.name} has been up to recently`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
@@ -265,4 +320,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, home, about, blog, work, gallery };

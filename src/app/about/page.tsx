@@ -128,14 +128,17 @@ export default function About() {
                 marginBottom="m"
                 vertical="center"
               >
-                <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Flex paddingX="8">Schedule a call</Flex>
+                
+                <Flex paddingX="8">Check my resume</Flex>
                 <IconButton
-                  href={about.calendar.link}
+                  href="/Resume_KushKumar.pdf"
                   data-border="rounded"
                   variant="secondary"
-                  icon="chevronRight"
+                  icon="document" // or "file", depending on the icon set
+                  target="_blank"
+                  rel="noopener noreferrer"
                 />
+
               </Flex>
             )}
             <Heading className={styles.textAlign} variant="display-strong-xl">

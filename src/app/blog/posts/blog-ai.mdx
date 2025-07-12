@@ -1,0 +1,140 @@
+---
+title: "How I Built a Smart AI Agent Using OpenAI, EasyOCR, and Playwright"
+summary: "Sharing my experience combining OpenAI’s function calling, EasyOCR, and Playwright to build a small but powerful AI agent."
+publishedAt: "2025-01-12"
+tag: "AI"
+---
+
+## Why I Built This
+
+Lately, I’ve been really interested in how AI agents can go beyond just chatting—they can actually **do things**. I wanted to build something that felt like a mini-assistant: it could **read pages**, **extract information**, and **act on it**.
+
+I had a few tools in mind:
+- **OpenAI API’s function calling with JSON mode** (feels like magic)
+- **EasyOCR** to read messy text from images or scanned pages
+- **Playwright** to automate browsing and grab clean data
+
+Putting all three together made me realize how close we are to real-world AI agents. Here’s how I did it.
+
+---
+
+## Step 1 – Telling the AI What It Can Do
+
+OpenAI recently added something called **function calling** in JSON mode. It lets you tell the model *exactly* what kind of data you expect back—and it sticks to it. That’s huge. No more guessing what part of a paragraph you need to parse.
+
+Here’s a sample of how I defined one function:
+
+```ts
+const functions = [
+  {
+    name: "store_entities",
+    description: "Save data pulled from a web page",
+    parameters: {
+      type: "object",
+      properties: {
+        url: { type: "string" },
+        entities: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              name:  { type: "string" },
+              value: { type: "string" }
+            },
+            required: ["name", "value"]
+          }
+        }
+      },
+      required: ["url", "entities"]
+    }
+  }
+];
+```
+
+---
+
+## Step 2 – Using OCR to Read Messy Pages
+
+Sometimes data is inside **scanned PDFs or screenshots**. EasyOCR came in handy for that. It’s not perfect, but it’s light and works well for many use cases.
+
+I wrote a simple wrapper that reads text from an image:
+
+```ts
+export async function ocrImage(path: string) {
+  const worker = await createWorker("eng");
+  await worker.loadLanguage("eng");
+  await worker.initialize("eng");
+  const { data: { text } } = await worker.recognize(path);
+  await worker.terminate();
+  return text;
+}
+```
+
+It’s cool to see how a machine can now read text that used to be stuck in pixels.
+
+---
+
+## Step 3 – Scraping the Web with Playwright
+
+When the data is already part of a web page, I use **Playwright** to grab it. I really like Playwright—feels like a browser you can control with code. You can click buttons, wait for things to load, and scrape exactly what you need.
+
+Here’s how I pulled metadata from a page:
+
+```ts
+const entities = await page.$$eval("meta[property^='og:']", metas =>
+  metas.map(m => ({
+    name:  m.getAttribute("property")!,
+    value: m.getAttribute("content")  || ""
+  }))
+);
+```
+
+Simple, readable, and very effective.
+
+---
+
+## Step 4 – Putting It All Together
+
+Now the fun part: wiring it all up into an agent.
+
+```ts
+const completion = await openai.chat.completions.create({
+  model:       "gpt-4o-mini",
+  messages:    [systemMsg, userMsg1, userMsg2],
+  functions,   // the ones we defined earlier
+  function_call: "auto",
+  response_format: { type: "json_object" } // forces clean JSON
+});
+```
+
+If OpenAI decides to call the `store_entities` function, I just read the arguments and act on them.
+
+The feeling of watching the model **choose a function**, **fill it out properly**, and **pass valid data** is honestly super satisfying. It feels like I’m not just chatting with GPT—I'm collaborating with it.
+
+---
+
+## Final Thoughts
+
+I didn’t expect it to work this smoothly. There were bugs, of course, but the general flow felt natural:
+
+- OCR handles messy visual data
+- Playwright grabs structured info
+- OpenAI makes sense of it all and returns a clear action
+
+Building this made me realize how **real AI agents are becoming**. It’s not just theory anymore—you can build useful mini tools with very little code.
+
+If you’re thinking about diving into agents, this kind of setup is a great start.
+
+---
+
+## What’s Next?
+
+- Add more functions like `send_email` or `create_task`
+- Hook it up to a database (I’m thinking Prisma + Postgres)
+- Maybe even a UI to see it all live?
+
+Thanks for reading! Feel free to reach out if you’re building something similar—I’d love to connect.
+
+---
+
+> ⚠️ One note: hot reload isn’t supported for MDX posts yet. I usually just restart the server when editing blog files.

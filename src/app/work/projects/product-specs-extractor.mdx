@@ -1,0 +1,40 @@
+---
+title: "Automated Product Spec Extractor Using Playwright and OpenAI"
+publishedAt: "2024-12-24"
+summary: "Built a program that extracts structured product specifications from descriptive client-side HTML pages using browser automation and LLM-based parsing."
+images:
+  - "/images/projects/project-01/spec.png"
+team:
+  - name: "Kush Kumar"
+    role: "Full Stack Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/your-profile/"
+link: "https://github.com/Ankush7Kumar/ProductSpecificationsExtractor"
+---
+
+## Overview
+
+Designed and built an automation pipeline to extract structured product specifications from descriptive HTML pages rendered client-side. The tool uses browser automation for scraping and leverages OpenAI's function calling and JSON mode to convert raw descriptions into structured data.
+
+## Key Features 
+
+- **Automated Scraping**: Used Playwright to simulate real-user interactions and retrieve fully rendered client-side HTML content from various product pages.
+- **LLM-Powered Parsing**: Leveraged OpenAI’s function calling and JSON mode to transform unstructured product descriptions into structured spec objects.
+- **Multi-Site Compatibility**: Designed the system to handle a wide variety of e-commerce layouts by dynamically adapting to DOM patterns.
+- **High Accuracy Output**: Ensured consistent and accurate parsing of key product attributes like dimensions, materials, features, and ratings.
+
+## Technologies Used
+
+- **Playwright**: For scraping fully rendered client-side web content.
+- **OpenAI API**: For semantic understanding and structured extraction via function calling.
+- **Python**: Core scripting and orchestration logic.
+- **JSON Schema**: For defining the expected structure of extracted product specifications.
+
+## Challenges and Learnings
+
+A major challenge was dealing with the inconsistency and noise in product descriptions across various websites. Fine-tuning the prompt design and JSON schema for OpenAI function calling was critical for achieving high parsing accuracy. Learned how to balance performance, cost, and response quality while using LLMs for data transformation.
+
+## Outcome
+
+This automated tool significantly reduces manual data entry efforts by extracting detailed product specs with minimal intervention. It serves as a robust backend utility for applications involving product catalogs, comparison tools, and inventory systems.
+```
