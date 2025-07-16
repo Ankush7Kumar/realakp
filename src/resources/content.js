@@ -47,7 +47,7 @@ const social = [
     link: "https://www.threads.com/@once_ui",
   },
    */
- 
+  
   {
     name: "Email",
     icon: "email",
@@ -57,7 +57,7 @@ const social = [
 
 const home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "/images/avatar.png",
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
