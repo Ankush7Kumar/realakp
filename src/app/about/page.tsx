@@ -131,7 +131,7 @@ export default function About() {
                 
                 <Flex paddingX="8">Check my resume</Flex>
                 <IconButton
-                  href="/Resume_KushKumar.pdf"
+                  href="/Resume_AnkushKumar.pdf"
                   data-border="rounded"
                   variant="secondary"
                   icon="document" // or "file", depending on the icon set

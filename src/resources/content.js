@@ -1,14 +1,14 @@
 import { Logo } from "@once-ui-system/core";
 
 const person = {
-  firstName: "Kush",
+  firstName: "Ankush",
   lastName: "Kumar",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "Software Engineer",
   avatar: "/images/avatar.jpg",
-  email: "7kushkumar@gmail.com",
+  email: "7ankushk@gmail.com",
   location: "America/Toronto", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Hindi"], // optional: Leave the array empty if you don't want to display languages
 };
@@ -69,7 +69,7 @@ const home = {
   },
   subline: (
     <>
-      I'm Kush, a software engineer, I work mostly on the backend at work. After hours, I build my own projects.
+      I'm Ankush, a software engineer, I work mostly on the backend at work. After hours, I build my own projects.
     </>
   ),
 };
