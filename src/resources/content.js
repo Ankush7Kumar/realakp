@@ -8,7 +8,7 @@ const person = {
   },
   role: "Software Engineer",
   avatar: "/images/avatar.jpg",
-  email: "7ankushk@gmail.com",
+  email: "a227kuma@uwaterloo.ca",
   location: "America/Toronto", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Hindi"], // optional: Leave the array empty if you don't want to display languages
 };
@@ -34,13 +34,13 @@ const social = [
     icon: "github",
     link: "https://github.com/ankush7kumar",
   },
-  /*
+  
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/ankush7kumar",
   },
- 
+ /*
   {
     name: "Threads",
     icon: "threads",
@@ -95,110 +95,158 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        I'm a Software Engineer with experience at BMO, Autodesk, and startups, skilled in building scalable APIs, secure authentication, and full-stack apps using Java, Spring Boot, React, and AWS. I’ve improved performance, reliability, and developer efficiency across domains.
+        I'm a Software Engineer with experience across startups and R&D environments, including ASAP Data Solutions, BH Frontier Solutions, and ProgramPro. I specialize in full-stack development, web scraping automation, and computer vision. I’ve built scalable APIs, secure authentication systems, and intelligent data extraction tools. My work has improved performance, reliability, and end-user experience across diverse applications.
 
       </>
     ),
   },
-  work: {
-    display: true, // set to false to hide this section
-    title: "Work Experience",
-    experiences: [
-      {
-        company: "BMO Financial Group",
-        timeframe: "November 2023 - Present",
-        role: "Software Engineer",
-        achievements: [
-          <>
-            Developed and maintained 30+ RESTful APIs using Java, Spring Boot, Spring MVC, Spring Security, and MySQL, optimizing internal financial operations.
-          </>,
-          <>
-            Implemented secure OAuth 2.0 & JWT-based authentication to enforce robust user access control across services.
-          </>,
-          <>
-            Deployed scalable services on AWS using EC2, S3, and RDS, improving system reliability & deployment efficiency.
-          </>,
-          <>
-            Refactored APIs and optimized SQL queries, improving response times by 15% and reducing processing load.
-          </>,
-          <>
-            Built centralized error handling and data validation layers, reducing client-side data issues by 25%.
-          </>,
-        ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          
-        ],
-      },
-      {
-        company: "Autodesk",
-        timeframe: "September 2022 - October 2023",
-        role: "Software Engineer",
-        achievements: [
-  <>
-    Developed an n8n-powered AI workflow to post summaries and risk scores for merge requests, reducing code
-    review prep time by 30% per sprint and boosting overall developer efficiency.
-  </>,
-  <>
-    Built Account Portal features using React and Playwright with 100% test coverage and optimized performance.
-  </>,
-  <>
-    Improved homepage responsiveness across 25+ repos and increased user engagement on homepage by 30%.
-  </>,
-  <>
-    Led Subscription Renewal project, increasing early renewals through experiments and dashboard analytics.
-  </>,
-],
-        images: [],
-      },
-      {
-  company: "PointClickCare",
-  timeframe: "May 2021 - August 2021",
-  role: "Software Engineer - Intern",
-  achievements: [
-    <>
-      Built an application to simplify doctors’ documentation and integrated it with existing company healthcare products.
-    </>,
-    <>
-      Designed, built, and tested end-to-end MVP features using React, Redux, Spring Boot, and testing suites.
-    </>,
-    <>
-      Worked on schema design using SQL in accordance with US and Canadian health data protection laws, and created rollback scripts.
-    </>,
-    <>
-      Refactored monolithic code into modular components using React hooks and Redux, enhancing code scalability.
-    </>,
+work: {
+  display: true, // set to false to hide this section
+  title: "Work Experience",
+  experiences: [
+    {
+      company: "ASAP Data Solutions Ltd.",
+      timeframe: "December 2024",
+      role: "Full Stack Developer - Freelance",
+      achievements: [
+        <>
+          Developed a tool from scratch to extract product specifications from fully rendered HTMLs using Playwright automation.
+        </>,
+        <>
+          Performed dynamic web scraping on client-side pages to collect structured product-related content efficiently.
+        </>,
+        <>
+          Utilized OpenAI’s function calling feature in JSON mode to analyze and understand product descriptions.
+        </>,
+        <>
+          Parsed extracted data into clean, structured specifications for downstream processing or display in applications.
+        </>,
+      ],
+      images: [],
+    },
+    {
+      company: "BH Frontier Solutions Inc",
+      timeframe: "July 2024 - November 2024",
+      role: "Computer Vision R&D Engineer",
+      achievements: [
+        <>
+          Utilized PyTorch to develop and optimize computer vision models, enhancing accuracy and processing efficiency significantly.
+        </>,
+        <>
+          Implemented data augmentation and pre-processing techniques to improve dataset quality for robust model training outcomes.
+        </>,
+        <>
+          Managed the complete model training pipeline, focusing on hyperparameter tuning and validation for optimal performance.
+        </>,
+        <>
+          Conducted model performance testing and refined approaches, ensuring high reliability and reduced inference time effectively.
+        </>,
+      ],
+      images: [],
+    },
+    {
+      company: "ProgramPro",
+      timeframe: "January 2024 - July 2024",
+      role: "Software Developer",
+      achievements: [
+        <>
+          Collaborated with the team to design authentication services using role-based access control and OAuth 2.0.
+        </>,
+        <>
+          Incorporated JWT methods with NextAuth, enhancing security protocols, and resulting in faster 20% login speeds.
+        </>,
+        <>
+          Engineered scalable backend solutions with MongoDB, improving system throughput by 15% for course management.
+        </>,
+        <>
+          Optimized 10+ RESTful APIs and integrated Stripe for payments, boosting latency optimization by 23%.
+        </>,
+      ],
+      images: [],
+    },
+    {
+      company: "NexDew Technologies",
+      timeframe: "November 2022 - January 2024",
+      role: "Software Developer",
+      achievements: [
+        <>
+          Developed and maintained 30 RESTful APIs for ”Sumaitriherp” hospital-based web application, handling CRUD operations, user authentication, patient management, & appointment scheduling.
+        </>,
+        <>
+          Enhanced response time by 15% and significantly improved web functionality by performing detailed reviews.
+        </>,
+        <>
+          Worked with Hibernate ORM and Spring Boot framework in Java using MySQL database.
+        </>,
+        <>
+          Implemented data validation & error handling, reducing errors by 25% & ensuring accurate data processing
+        </>,
+      ],
+      images: [],
+    },
+    {
+      company: "SOCA",
+      timeframe: "May 2021 - August 2021",
+      role: "Web Developer",
+      achievements: [
+        <>
+          Created an interactive fully responsive website from scratch using React designed for an Ontario Cricket League played by 16 teams.
+        </>,
+        <>
+          Enhanced load time by 15% by implementing website’s state using Redux library and lazy loading pattern for the images.
+        </>,
+        <>
+          Implemented user-centered design, applied multi-page layout, DRY principle using React-Bootstrap and CSS.
+        </>,
+        <>
+          Built a scalable UI capable of handling big traffic load by reducing UI re-renderings which decreased data processing cost by 20%.
+        </>,
+      ],
+      images: [],
+    },
+    {
+      company: "PetroWagon",
+      timeframe: "August 2019 - January 2020",
+      role: "Software Engineer",
+      achievements: [
+        <>
+          Developed an Android App from scratch using Java and XML for a fuel delivery-based startup allowing simultaneous multiple orders.
+        </>,
+        <>
+          Programmed app’s local database using Android Room and implemented SQL queries to store mutable live data.
+        </>,
+        <>
+          Built onboarding flow to collect user information for customized suggestions.
+        </>,
+        <>
+          Maintained structured code using MVVM architecture to enhance reusability and optimized app performance.
+        </>,
+      ],
+      images: [],
+    },
+    {
+      company: "ICSD Tech Labs",
+      timeframe: "May 2018 - August 2018",
+      role: "C++ Tutor",
+      achievements: [
+        <>
+          Worked closely with multiple batches of high school computer science students to tutor in Object Oriented Programming.
+        </>,
+        <>
+          Successfully analyzed and debugged code written by many different individuals, provided feedback and helped them with queries.
+        </>,
+        <>
+          Reviewed, evaluated, and resolved technical support requests in a timely and effective manner.
+        </>,
+        <>
+          Helped students meet deadlines.
+        </>,
+      ],
+      images: [],
+    },
   ],
-  images: [
-    // optional: leave the array empty if you don't want to display images
-  ],
-},
-{
-  company: "Arctic Wolf Networks",
-  timeframe: "May 2020 - August 2020",
-  role: "Software Developer - Intern",
-  achievements: [
-    <>
-      Led development of a schema parser, code generator, and ML-based predictor to standardize third-party data schemas using Python and Java.
-    </>,
-    <>
-      Built algorithms to automate integration, optimized workflows by 40% and reduced manual overhead.
-    </>,
-    <>
-      Engineered a real-time log ingestion and processing tool for Microsoft Office accounts.
-    </>,
-    <>
-      Enhanced security coverage across systems by enabling faster and more accurate log analysis.
-    </>,
-  ],
-  images: [
-    // optional: leave the array empty if you don't want to display images
-  ],
-},
-
-
-    ],
-  },
+}
+,
   studies: {
     display: true, // set to false to hide this section
     title: "Studies",
