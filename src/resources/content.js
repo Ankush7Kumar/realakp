@@ -61,7 +61,7 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>From a thought in my head and to it happening in real on screen</>,
+  headline: <>From a thought in my head to it happening in real on screen</>,
   featured: {
     display: true,
     title: <>Recent project: <strong className="ml-4">Product Specs Extractor</strong></>,
